@@ -1,12 +1,6 @@
-*.pyc
-__pycache__/
-instance/
-.webassets-cache
-.env
-.DS_Store
-*.pkl
-*.h5
-*.log
-*.sqlite3
 fc24_env/
 lib/
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
