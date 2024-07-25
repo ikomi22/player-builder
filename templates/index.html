@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Builder</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Build Your Player</h1>
+        <form action="/build_player" method="post">
+            <div class="form-group">
+                <label for="player_description">Player Name:</label>
+                <input type="text" id="player_description" name="player_description" required>
+            </div>
+            <div class="form-group">
+                <label for="skill_points">Skill Points:</label>
+                <input type="number" id="skill_points" name="skill_points" required>
+            </div>
+            <button type="submit">Build Player</button>
+        </form>
+        {% if gpt_recommendation %}
+        <div class="result">
+            <h2>ProClubsBuilder Tips</h2>
+            <div class="player-info">
+                <h3>Player Information</h3>
+                <p><strong>Name:</strong> {{ player_description }}</p>
+                <p><strong>Height:</strong> {{ player_info.height_cm }} cm</p>
+                <p><strong>Weight:</strong> {{ player_info.weight_kg }} kg</p>
+                <p><strong>Preferred Foot:</strong> {{ player_info.preferred_foot }}</p>
+            </div>
+            <div class="recommendation">
+                <h3>Skill Point Allocation</h3>
+                <div class="recommendation-content">
+                    {{ gpt_recommendation|safe }}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
