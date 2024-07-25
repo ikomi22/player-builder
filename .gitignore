@@ -8,3 +8,5 @@ instance/
 *.h5
 *.log
 *.sqlite3
+fc24_env/
+lib/
